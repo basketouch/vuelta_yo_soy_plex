@@ -203,8 +203,7 @@
     if (titleEl) titleEl.textContent = "Selecciona un punto en el mapa";
     if (metaEl) {
       metaEl.textContent =
-        "Filtra por vuelta o país. Haz clic en un punto del globo para ver la ubicación y el vídeo. " +
-        "Si no ves el globo, pulsa Inicio (casita) arriba a la derecha del mapa.";
+        "Filtra por vuelta o país. Haz clic en un punto del globo para ver la ubicación y el vídeo.";
     }
     if (iframeEl) {
       iframeEl.removeAttribute("src");
