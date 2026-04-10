@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las Vueltas al mundo de YO SOY PLEX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="plex-header">
+    <div class="plex-header__decor" aria-hidden="true">
+      <img
+        class="plex-header__decor-img"
+        src="header-vintage-map.png"
+        alt=""
+        width="1200"
+        height="800"
+        decoding="async"
+      />
+    </div>
+    <div class="plex-header__top">
+      <div class="plex-header__left">
+        <a class="plex-wordmark" href="https://www.youtube.com/@YoSoyPlex" target="_blank" rel="noopener noreferrer" aria-label="Las Vueltas al mundo de YO SOY PLEX en YouTube">
+          <span class="plex-wordmark__main">Las Vueltas al mundo</span>
+          <span class="plex-wordmark__sub">de YO SOY PLEX</span>
+        </a>
+        <p class="plex-tagline">Mapa interactivo de los viajes · Vuelta 1, 2 y 3</p>
+      </div>
+      <div class="plex-header__right">
+        <ul class="legend" aria-label="Leyenda">
+          <li><span class="legend-dot legend-dot--v1" aria-hidden="true"></span> Vuelta 1</li>
+          <li><span class="legend-dot legend-dot--v2" aria-hidden="true"></span> Vuelta 2</li>
+          <li><span class="legend-dot legend-dot--v3" aria-hidden="true"></span> Vuelta 3</li>
+        </ul>
+        <a class="plex-cta" href="https://www.youtube.com/@YoSoyPlex" target="_blank" rel="noopener noreferrer">Canal oficial</a>
+      </div>
+    </div>
+    <div class="map-filters map-filters--header" role="search" aria-label="Filtrar puntos en el mapa">
+      <div class="map-filters__row">
+        <label class="map-filters__field">
+          <span class="map-filters__label">Vuelta</span>
+          <select id="filter-vuelta" class="map-filters__select">
+            <option value="">Todas</option>
+            <option value="1">Vuelta 1</option>
+            <option value="2">Vuelta 2</option>
+            <option value="3">Vuelta 3</option>
+          </select>
+        </label>
+        <label class="map-filters__field map-filters__field--grow">
+          <span class="map-filters__label">País</span>
+          <select id="filter-pais" class="map-filters__select">
+            <option value="">Todos</option>
+          </select>
+        </label>
+        <button type="button" class="map-filters__btn" id="filter-reset">Limpiar</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <div class="map-column">
+      <div class="map-legend-float" aria-hidden="true">
+        <span class="map-legend-float__title">Leyenda</span>
+        <ul class="map-legend-float__list">
+          <li><span class="legend-dot legend-dot--v1" aria-hidden="true"></span> Vuelta 1</li>
+          <li><span class="legend-dot legend-dot--v2" aria-hidden="true"></span> Vuelta 2</li>
+          <li><span class="legend-dot legend-dot--v3" aria-hidden="true"></span> Vuelta 3</li>
+        </ul>
+      </div>
+      <main id="map" role="application" aria-label="Mapa interactivo de los viajes"></main>
+    </div>
+
+    <aside class="video-panel" aria-label="Vídeo y ubicación en el mapa">
+      <div class="video-panel__top">
+        <span class="video-panel__label">PLEX · UBICACIÓN</span>
+        <h2 class="video-panel__title" id="video-panel-title">Selecciona un punto en el mapa</h2>
+        <p class="video-panel__meta" id="video-panel-meta" role="status" aria-live="polite">
+          Haz clic en un punto: verás el país o región, la vuelta y el vídeo (el título del vídeo sale en el reproductor).
+        </p>
+      </div>
+
+      <div class="video-panel__frame">
+        <button
+          type="button"
+          class="video-expand-btn"
+          id="video-expand-btn"
+          hidden
+          aria-label="Ampliar vídeo en una ventana"
+          title="Ampliar vídeo"
+        >
+          <svg
+            class="video-expand-btn__icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="15 3 21 3 21 9" />
+            <polyline points="9 21 3 21 3 15" />
+            <line x1="21" y1="3" x2="14" y2="10" />
+            <line x1="3" y1="21" x2="10" y2="14" />
+          </svg>
+        </button>
+        <div class="video-panel__placeholder" id="video-placeholder">
+          <span class="video-panel__placeholder-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7L8 5z" />
+            </svg>
+          </span>
+          <p>Tu episodio aparecerá en este reproductor</p>
+        </div>
+        <iframe
+          id="yt-embed"
+          class="video-panel__iframe is-hidden"
+          title="Reproductor de YouTube"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <div class="video-panel__actions">
+        <a class="plex-btn plex-btn--primary" id="video-open-yt" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir en YouTube</a>
+      </div>
+
+      <footer class="video-panel__footer">
+        <span class="plex-mark">PLEX</span>
+        <span class="plex-footer-note">Experiencia no oficial · datos de la comunidad</span>
+      </footer>
+    </aside>
+  </div>
+
+  <div
+    class="video-modal"
+    id="video-modal"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-label="Reproductor de vídeo ampliado"
+  >
+    <button
+      type="button"
+      class="video-modal__backdrop"
+      id="video-modal-backdrop"
+      tabindex="-1"
+      aria-label="Cerrar"
+    ></button>
+    <div class="video-modal__inner">
+      <button
+        type="button"
+        class="video-modal__close"
+        id="video-modal-close"
+        aria-label="Cerrar reproductor ampliado"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+      <div class="video-modal__frame">
+        <iframe
+          id="yt-embed-modal"
+          class="video-modal__iframe"
+          title="YouTube (vista ampliada)"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="script.js"></script>
+</body>
+</html>
