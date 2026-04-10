@@ -70,8 +70,8 @@
     });
   }
 
-  /* El panel lateral + flex dejan el canvas en 0×0 en el primer frame: sin resize
-   la cámara queda mal hasta pulsar Inicio. Doble rAF + zoomTo tras cargar datos. */
+  /* Panel lateral + flex: el canvas puede medir 0×0 al inicio. Doble rAF tras layout.
+   No usar zoomTo(entities) con puntos globales: bounding sphere degenerada → crash Cesium. */
   applyFallbackCamera();
   requestAnimationFrame(function () {
     requestAnimationFrame(applyFallbackCamera);
@@ -349,18 +349,13 @@
       addEntitiesForTrip(data.vuelta3, "vuelta3", COLORS.vuelta3, temporadaForKey("vuelta3"));
       applyFilters();
       resizeViewerSoon();
-      var zt = viewer.zoomTo(viewer.entities, { duration: 0 });
-      if (zt && typeof zt.then === "function") {
-        zt.then(function () {
-          resizeViewerSoon();
-        }).catch(function () {
+      applyFallbackCamera();
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
           applyFallbackCamera();
           resizeViewerSoon();
         });
-      } else {
-        applyFallbackCamera();
-        resizeViewerSoon();
-      }
+      });
     })
     .catch(function (err) {
       console.error(err);
