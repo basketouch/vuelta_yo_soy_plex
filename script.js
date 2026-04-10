@@ -158,7 +158,7 @@
     if (titleEl) titleEl.textContent = "Selecciona un punto en el mapa";
     if (metaEl) {
       metaEl.textContent =
-        "Filtra por vuelta o país. Haz clic en un punto para ver la ubicación y el vídeo.";
+        "Filtra por vuelta o país. Haz clic en un punto del mapa para ver el vídeo.";
     }
     if (iframeEl) {
       iframeEl.removeAttribute("src");

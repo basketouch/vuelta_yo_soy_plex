@@ -218,10 +218,10 @@
       setPointStyle(selectedRec, false);
       selectedRec = null;
     }
-    if (titleEl) titleEl.textContent = "Selecciona un punto en el mapa";
+    if (titleEl) titleEl.textContent = "Selecciona un punto en el globo";
     if (metaEl) {
       metaEl.textContent =
-        "Filtra por vuelta o país. Haz clic en un punto del globo para ver la ubicación y el vídeo.";
+        "Filtra por vuelta o país. Haz clic en un punto del globo para ver el vídeo.";
     }
     if (iframeEl) {
       iframeEl.removeAttribute("src");
