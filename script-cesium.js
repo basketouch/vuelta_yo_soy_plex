@@ -282,14 +282,18 @@
       var paisFiltro = paísSoloParaFiltro(paisStr);
       var c = Cesium.Color.fromCssColorString(color);
 
+      /* Altura 0 + clamp al “suelo” del elipsoide: antes a 2500 m el punto flotaba y,
+ con la cámara inclinada, parecía desplazado respecto al mapa 2D (paralaje).
+       Mismas lat/lng que Leaflet; no hace falta token Ion de pago. */
       var entity = viewer.entities.add({
-        position: Cesium.Cartesian3.fromDegrees(lng, lat, 2500),
+        position: Cesium.Cartesian3.fromDegrees(lng, lat, 0),
         point: {
-          pixelSize: 8,
+          pixelSize: 9,
           color: c.withAlpha(0.62),
           outlineColor: Cesium.Color.WHITE.withAlpha(0.72),
           outlineWidth: 1.5,
           disableDepthTestDistance: Number.POSITIVE_INFINITY,
+          heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
         },
         name: "PLEX · " + paisStr,
       });
