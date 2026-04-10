@@ -590,6 +590,10 @@ body {
   border-top: 1px solid var(--border);
 }
 
+#video-panel-actions[hidden] {
+  display: none !important;
+}
+
 .plex-btn {
   display: block;
   width: 100%;

@@ -20,6 +20,7 @@
   var videoModalCloseEl = document.getElementById("video-modal-close");
   var videoModalBackdropEl = document.getElementById("video-modal-backdrop");
   var openYtEl = document.getElementById("video-open-yt");
+  var ytActionsEl = document.getElementById("video-panel-actions");
   var filterVueltaEl = document.getElementById("filter-vuelta");
   var filterPaisEl = document.getElementById("filter-pais");
   var resetFiltersEl = document.getElementById("filter-reset");
@@ -210,7 +211,7 @@
       iframeEl.classList.add("is-hidden");
     }
     if (placeholderEl) placeholderEl.classList.remove("is-hidden");
-    if (openYtEl) openYtEl.hidden = true;
+    if (ytActionsEl) ytActionsEl.hidden = true;
     if (expandBtnEl) expandBtnEl.hidden = true;
     closeVideoModal();
   }
@@ -246,12 +247,12 @@
       if (expandBtnEl) expandBtnEl.hidden = true;
     }
 
-    if (openYtEl) {
+    if (openYtEl && ytActionsEl) {
       if (url && url !== "#") {
         openYtEl.href = url;
-        openYtEl.hidden = false;
+        ytActionsEl.hidden = false;
       } else {
-        openYtEl.hidden = true;
+        ytActionsEl.hidden = true;
       }
     }
   }
