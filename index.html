@@ -36,9 +36,19 @@
           <span class="plex-wordmark__sub">de YO SOY PLEX</span>
         </a>
         <p class="plex-tagline">Mapa interactivo de los viajes · Vuelta 1, 2 y 3</p>
-        <p class="plex-header__view-switch">
-          <a href="index-cesium.html">Probar globo 3D (Cesium) →</a>
-        </p>
+        <div class="plex-header__view-switch">
+          <label class="plex-view-mode">
+            <span class="map-filters__label">Vista</span>
+            <select
+              id="plex-view-mode"
+              class="map-filters__select plex-view-mode__select"
+              aria-label="Elegir vista: mapa 2D o globo 3D"
+            >
+              <option value="index.html">2D · Carto (Leaflet)</option>
+              <option value="index-cesium.html">3D · Cesium</option>
+            </select>
+          </label>
+        </div>
       </div>
       <div class="plex-header__right">
         <ul class="legend" aria-label="Leyenda">
@@ -192,5 +202,6 @@
     crossorigin=""
   ></script>
   <script src="script.js"></script>
+  <script src="view-mode-select.js"></script>
 </body>
 </html>
