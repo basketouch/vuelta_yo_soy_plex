@@ -10,3 +10,26 @@
   left: 12px;
   right: auto;
 }
+
+.cesium-home-hint {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 900;
+  max-width: min(20rem, calc(100% - 24px));
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text);
+  background: rgba(18, 21, 28, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.cesium-home-hint strong {
+  font-weight: 700;
+  color: var(--plex-amber);
+}

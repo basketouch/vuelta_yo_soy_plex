@@ -77,6 +77,24 @@
     requestAnimationFrame(applyFallbackCamera);
   });
 
+  function flyHomeLikeToolbar() {
+    try {
+      viewer.resize();
+      if (
+        viewer.scene &&
+        viewer.scene.camera &&
+        typeof viewer.scene.camera.flyHome === "function"
+      ) {
+        viewer.scene.camera.flyHome(0);
+      }
+    } catch (ignore) {
+      /* flyHome puede fallar si el visor aún no está listo */
+    }
+  }
+
+  setTimeout(flyHomeLikeToolbar, 280);
+  setTimeout(flyHomeLikeToolbar, 950);
+
   function resizeViewerSoon() {
     setTimeout(function () {
       viewer.resize();
@@ -185,7 +203,8 @@
     if (titleEl) titleEl.textContent = "Selecciona un punto en el mapa";
     if (metaEl) {
       metaEl.textContent =
-        "Filtra por vuelta o país. Haz clic en un punto del globo para ver la ubicación y el vídeo.";
+        "Filtra por vuelta o país. Haz clic en un punto del globo para ver la ubicación y el vídeo. " +
+        "Si no ves el globo, pulsa Inicio (casita) arriba a la derecha del mapa.";
     }
     if (iframeEl) {
       iframeEl.removeAttribute("src");
@@ -356,6 +375,8 @@
           resizeViewerSoon();
         });
       });
+      setTimeout(flyHomeLikeToolbar, 350);
+      setTimeout(flyHomeLikeToolbar, 1100);
     })
     .catch(function (err) {
       console.error(err);
