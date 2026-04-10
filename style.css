@@ -133,7 +133,7 @@ body {
 
 /* Selector2D/3D en la fila de filtros (antes de Vuelta) */
 .plex-view-mode__select {
-  min-width: 10.5rem;
+  min-width: 4.25rem;
   max-width: 100%;
 }
 
