@@ -36,7 +36,9 @@
     vrButton: false,
     infoBox: false,
     selectionIndicator: false,
-    terrain: Cesium.Terrain.fromEllipsoid(),
+    terrain: new Cesium.Terrain(
+      Promise.resolve(new Cesium.EllipsoidTerrainProvider())
+    ),
   });
 
   viewer.imageryLayers.removeAll();
