@@ -109,6 +109,14 @@
 
   window.addEventListener("resize", resizeViewerSoon);
 
+  var cesiumColumnEl = containerEl.parentElement;
+  if (cesiumColumnEl && typeof ResizeObserver !== "undefined") {
+    var cesiumResizeObserver = new ResizeObserver(function () {
+      resizeViewerSoon();
+    });
+    cesiumResizeObserver.observe(cesiumColumnEl);
+  }
+
   var selectedRec = null;
   var allMarkers = [];
 

@@ -58,6 +58,14 @@
 
   window.addEventListener("resize", invalidateMapSoon);
 
+  var mapColumnEl = mapEl.parentElement;
+  if (mapColumnEl && typeof ResizeObserver !== "undefined") {
+    var mapResizeObserver = new ResizeObserver(function () {
+      invalidateMapSoon();
+    });
+    mapResizeObserver.observe(mapColumnEl);
+  }
+
   var selectedMarker = null;
   var allMarkers = [];
 
