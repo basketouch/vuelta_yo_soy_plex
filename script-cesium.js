@@ -282,9 +282,9 @@
       var paisFiltro = paísSoloParaFiltro(paisStr);
       var c = Cesium.Color.fromCssColorString(color);
 
-      /* Altura 0 + clamp al “suelo” del elipsoide: antes a 2500 m el punto flotaba y,
- con la cámara inclinada, parecía desplazado respecto al mapa 2D (paralaje).
-       Mismas lat/lng que Leaflet; no hace falta token Ion de pago. */
+      /* Altura 0 sobre el elipsoide WGS84 (HeightReference.NONE por defecto).
+       CLAMP_TO_GROUND hacía que en vista 2D de Cesium los puntos no encajaran como en 3D.
+       Sin disableDepthTestDistance → sin fantasmas en la cara oculta del globo. */
       var entity = viewer.entities.add({
         position: Cesium.Cartesian3.fromDegrees(lng, lat, 0),
         point: {
@@ -292,9 +292,6 @@
           color: c.withAlpha(0.62),
           outlineColor: Cesium.Color.WHITE.withAlpha(0.72),
           outlineWidth: 1.5,
-          /* Sin disableDepthTestDistance: si no, los puntos se pintan “encima” del
- horizonte y se ven en la cara oculta del globo (fantasma / transparente). */
-          heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
         },
         name: "PLEX · " + paisStr,
       });
