@@ -658,12 +658,101 @@ body {
   color: var(--plex-red);
 }
 
+.plex-footer-note-wrap {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  max-width: min(17rem, 100%);
+}
+
 .plex-footer-note {
   font-size: 0.65rem;
   color: var(--muted);
   line-height: 1.3;
-  max-width: 14rem;
+  max-width: 13rem;
   text-align: right;
+}
+
+.plex-info-tip {
+  position: relative;
+  flex-shrink: 0;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.05rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--muted);
+  font-size: 0.55rem;
+  font-weight: 700;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+  cursor: help;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.plex-info-tip:hover,
+.plex-info-tip:focus-visible {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.35);
+  outline: none;
+}
+
+.plex-info-tip:focus-visible {
+  box-shadow: 0 0 0 2px var(--plex-red);
+}
+
+.plex-info-tip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  width: min(15.5rem, calc(100vw - 2.5rem));
+  padding: 0.5rem 0.65rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  font-style: normal;
+  font-family: inherit;
+  line-height: 1.4;
+  color: var(--text);
+  text-align: left;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+}
+
+.plex-info-tip::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 4px);
+  right: 0.28rem;
+  border: 6px solid transparent;
+  border-top-color: var(--surface-2);
+  filter: drop-shadow(0 1px 0 var(--border));
+  opacity: 0;
+  visibility: hidden;
+  z-index: 6;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+}
+
+.plex-info-tip:hover::after,
+.plex-info-tip:focus-visible::after,
+.plex-info-tip:hover::before,
+.plex-info-tip:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
 }
 
 .leaflet-container {
