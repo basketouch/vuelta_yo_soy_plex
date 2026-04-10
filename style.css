@@ -410,10 +410,26 @@ body {
   gap: 0.75rem;
   padding: 1.5rem;
   text-align: center;
-  color: var(--muted);
   font-size: 0.875rem;
-  background: radial-gradient(ellipse at center, var(--surface-2) 0%, #000 70%);
-  border: 1px dashed var(--border);
+  color: var(--text);
+  background-color: #0a0b0e;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(10, 11, 14, 0.45) 0%,
+      rgba(10, 11, 14, 0.72) 100%
+    ),
+    url("video-placeholder-bg.png");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.video-panel__placeholder p {
+  margin: 0;
+  max-width: 16rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 1px rgba(0, 0, 0, 0.95);
 }
 
 .video-panel__placeholder.is-hidden {
