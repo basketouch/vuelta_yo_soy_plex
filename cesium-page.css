@@ -1,0 +1,12 @@
+/* Vista Cesium: el contenedor ocupa la columna del mapa como #map en Leaflet */
+#cesiumContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Créditos Cesium encima del globo, sin tapar la leyenda flotante */
+.cesium-viewer-bottom {
+  left: 12px;
+  right: auto;
+}

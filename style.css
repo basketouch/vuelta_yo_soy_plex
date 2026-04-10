@@ -131,6 +131,24 @@ body {
   line-height: 1.4;
 }
 
+.plex-header__view-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+}
+
+.plex-header__view-switch a {
+  color: var(--v1);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.plex-header__view-switch a:hover {
+  text-decoration: underline;
+}
+
 .plex-header__right {
   display: flex;
   flex-direction: column;

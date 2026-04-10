@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Las Vueltas al mundo de YO SOY PLEX</title>
+  <title>Globo 3D (Cesium) · Las Vueltas al mundo de YO SOY PLEX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
+  <link
+    href="https://cesium.com/downloads/cesiumjs/releases/1.119/Build/Cesium/Widgets/widgets.css"
+    rel="stylesheet"
   />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="cesium-page.css" />
 </head>
 <body>
   <header class="plex-header">
@@ -35,9 +35,9 @@
           <span class="plex-wordmark__main">Las Vueltas al mundo</span>
           <span class="plex-wordmark__sub">de YO SOY PLEX</span>
         </a>
-        <p class="plex-tagline">Mapa interactivo de los viajes · Vuelta 1, 2 y 3</p>
+        <p class="plex-tagline">Globo 3D (prueba Cesium) · mismos datos que el mapa 2D</p>
         <p class="plex-header__view-switch">
-          <a href="index-cesium.html">Probar globo 3D (Cesium) →</a>
+          <a href="index.html">← Volver al mapa 2D (Leaflet)</a>
         </p>
       </div>
       <div class="plex-header__right">
@@ -81,7 +81,7 @@
           <li><span class="legend-dot legend-dot--v3" aria-hidden="true"></span> Vuelta 3</li>
         </ul>
       </div>
-      <main id="map" role="application" aria-label="Mapa interactivo de los viajes"></main>
+      <main id="cesiumContainer" role="application" aria-label="Globo 3D interactivo de los viajes"></main>
     </div>
 
     <aside class="video-panel" aria-label="Vídeo y ubicación en el mapa">
@@ -89,7 +89,7 @@
         <span class="video-panel__label">PLEX · UBICACIÓN</span>
         <h2 class="video-panel__title" id="video-panel-title">Selecciona un punto en el mapa</h2>
         <p class="video-panel__meta" id="video-panel-meta" role="status" aria-live="polite">
-          Haz clic en un punto: verás el país o región, la vuelta y el vídeo (el título del vídeo sale en el reproductor).
+          Haz clic en un punto del globo: verás el país o región, la vuelta y el vídeo.
         </p>
       </div>
 
@@ -145,7 +145,7 @@
 
       <footer class="video-panel__footer">
         <span class="plex-mark">PLEX</span>
-        <span class="plex-footer-note">Experiencia no oficial · datos de la comunidad</span>
+        <span class="plex-footer-note">Vista Cesium · terreno elipsoide · sin token Ion</span>
       </footer>
     </aside>
   </div>
@@ -186,11 +186,7 @@
     </div>
   </div>
 
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-  <script src="script.js"></script>
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.119/Build/Cesium/Cesium.js"></script>
+  <script src="script-cesium.js"></script>
 </body>
 </html>
