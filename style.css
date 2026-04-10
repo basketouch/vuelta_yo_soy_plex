@@ -162,10 +162,36 @@ body {
 .plex-header-credit {
   margin: 0;
   padding: 0;
-  max-width: 16rem;
+  max-width: min(24rem, 100%);
   font-size: 0.65rem;
   line-height: 1.35;
   text-align: right;
+}
+
+.plex-header-credit__inner {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem 0.45rem;
+}
+
+.plex-header-credit__sep {
+  opacity: 0.45;
+  user-select: none;
+}
+
+.plex-header-credit__ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.plex-header-credit__ig-icon {
+  width: 0.8rem;
+  height: 0.8rem;
+  flex-shrink: 0;
+  opacity: 0.88;
 }
 
 .plex-header-credit a {
@@ -885,6 +911,10 @@ body {
   .plex-header-credit {
     text-align: left;
     max-width: none;
+  }
+
+  .plex-header-credit__inner {
+    justify-content: flex-start;
   }
 
   .plex-header__filters-block .plex-header-credit {
