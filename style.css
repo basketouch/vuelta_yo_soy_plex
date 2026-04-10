@@ -131,20 +131,10 @@ body {
   line-height: 1.4;
 }
 
-.plex-header__view-switch {
-  margin: 0.4rem 0 0;
-}
-
-.plex-view-mode {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  align-items: flex-start;
-  cursor: pointer;
-}
-
+/* Selector2D/3D en la fila de filtros (antes de Vuelta) */
 .plex-view-mode__select {
-  min-width: 12rem;
+  min-width: 10.5rem;
+  max-width: 100%;
 }
 
 .plex-header__right {
