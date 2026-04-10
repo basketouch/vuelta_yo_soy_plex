@@ -1002,19 +1002,20 @@ body {
   }
 
   .video-modal {
-    padding: 0.5rem;
-    align-items: flex-end;
-    padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+    align-items: center;
+    justify-content: center;
+    padding: max(0.5rem, env(safe-area-inset-top, 0px)) max(0.5rem, env(safe-area-inset-right, 0px))
+      max(0.5rem, env(safe-area-inset-bottom, 0px)) max(0.5rem, env(safe-area-inset-left, 0px));
   }
 
   .video-modal__inner {
-    width: 100%;
+    width: min(100%, 96vw);
     max-width: 100%;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
   }
 
   .video-modal__frame {
-    height: min(calc(100vw * 9 / 16), calc(100dvh - 4rem));
+    height: min(calc(96vw * 9 / 16), calc(100dvh - 2.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
     min-height: 180px;
   }
 }
