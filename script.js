@@ -27,6 +27,7 @@
   var ytActionsEl = document.getElementById("video-panel-actions");
   var filterVueltaEl = document.getElementById("filter-vuelta");
   var filterPaisEl = document.getElementById("filter-pais");
+  var filterVideoEl = document.getElementById("filter-video");
   var resetFiltersEl = document.getElementById("filter-reset");
 
   var map = L.map(mapEl, {
@@ -237,6 +238,47 @@
       });
       rec.marker.options.interactive = show;
     });
+    fillVideoOptionsAfterFilters();
+  }
+
+  function fillVideoOptionsAfterFilters() {
+    if (!filterVideoEl) return;
+    var v = filterVueltaEl ? filterVueltaEl.value : "";
+    var p = filterPaisEl ? filterPaisEl.value : "";
+    var cur = filterVideoEl.value;
+    filterVideoEl.innerHTML = '<option value="">Vídeo…</option>';
+    allMarkers.forEach(function (rec, idx) {
+      var okV = !v || String(rec.temporada) === v;
+      var okP = !p || rec.paisFiltro === p;
+      if (!okV || !okP) return;
+      var tit = rec.item.titulo != null ? String(rec.item.titulo) : "Vídeo";
+      var opt = document.createElement("option");
+      opt.value = String(idx);
+      opt.textContent = tit.length > 90 ? tit.slice(0, 87) + "…" : tit;
+      filterVideoEl.appendChild(opt);
+    });
+    if (
+      cur &&
+      Array.prototype.some.call(filterVideoEl.options, function (o) {
+        return o.value === cur;
+      })
+    ) {
+      filterVideoEl.value = cur;
+    } else {
+      if (cur) resetPanel();
+      filterVideoEl.value = "";
+    }
+  }
+
+  function syncVideoSelectToRec(rec) {
+    if (!filterVideoEl || !rec) return;
+    var v = filterVueltaEl ? filterVueltaEl.value : "";
+    var p = filterPaisEl ? filterPaisEl.value : "";
+    var okV = !v || String(rec.temporada) === v;
+    var okP = !p || rec.paisFiltro === p;
+    if (!okV || !okP) return;
+    var idx = allMarkers.indexOf(rec);
+    if (idx >= 0) filterVideoEl.value = String(idx);
   }
 
   function fillPaisOptions(data) {
@@ -283,6 +325,16 @@
         fillOpacity: 0.62,
       }).addTo(map);
 
+      var rec = {
+        marker: marker,
+        temporada: temporadaNum,
+        pais: paisStr,
+        paisFiltro: paisFiltro,
+        item: item,
+        color: color,
+      };
+      allMarkers.push(rec);
+
       marker.on("click", function () {
         if (selectedMarker) {
           setMarkerSelected(selectedMarker.m, selectedMarker.c, false);
@@ -290,6 +342,7 @@
         selectedMarker = { m: marker, c: color };
         setMarkerSelected(marker, color, true);
         showVideoInPanel(item, temporadaNum);
+        syncVideoSelectToRec(rec);
       });
 
       marker.bindTooltip("PLEX · " + paisStr, {
@@ -297,15 +350,6 @@
         direction: "top",
         opacity: 0.95,
         className: "plex-map-tooltip",
-      });
-
-      allMarkers.push({
-        marker: marker,
-        temporada: temporadaNum,
-        pais: paisStr,
-        paisFiltro: paisFiltro,
-        item: item,
-        color: color,
       });
     });
   }
@@ -335,10 +379,38 @@
   if (filterPaisEl) {
     filterPaisEl.addEventListener("change", applyFilters);
   }
+  if (filterVideoEl) {
+    filterVideoEl.addEventListener("change", function () {
+      var raw = filterVideoEl.value;
+      if (!raw) {
+        resetPanel();
+        applyFilters();
+        return;
+      }
+      var idx = parseInt(raw, 10);
+      if (Number.isNaN(idx) || idx < 0 || idx >= allMarkers.length) return;
+      var rec = allMarkers[idx];
+      var v = filterVueltaEl ? filterVueltaEl.value : "";
+      var p = filterPaisEl ? filterPaisEl.value : "";
+      if ((!v || String(rec.temporada) === v) && (!p || rec.paisFiltro === p)) {
+        if (selectedMarker) {
+          setMarkerSelected(selectedMarker.m, selectedMarker.c, false);
+        }
+        selectedMarker = { m: rec.marker, c: rec.color };
+        setMarkerSelected(rec.marker, rec.color, true);
+        showVideoInPanel(rec.item, rec.temporada);
+        var ll = rec.marker.getLatLng();
+        map.setView(ll, Math.max(map.getZoom(), 4));
+        invalidateMapSoon();
+      }
+    });
+  }
+
   if (resetFiltersEl) {
     resetFiltersEl.addEventListener("click", function () {
       if (filterVueltaEl) filterVueltaEl.value = "";
       if (filterPaisEl) filterPaisEl.value = "";
+      if (filterVideoEl) filterVideoEl.value = "";
       resetPanel();
       applyFilters();
     });
