@@ -17,7 +17,8 @@
   var metaEl = document.getElementById("video-panel-meta");
   var placeholderEl = document.getElementById("video-placeholder");
   var iframeEl = document.getElementById("yt-embed");
-  var iframeModalEl = document.getElementById("yt-embed-modal");
+  var panelVideoFrameEl = document.querySelector(".video-panel__frame");
+  var modalVideoFrameEl = document.querySelector(".video-modal__frame");
   var expandBtnEl = document.getElementById("video-expand-btn");
   var videoModalEl = document.getElementById("video-modal");
   var videoModalCloseEl = document.getElementById("video-modal-close");
@@ -111,22 +112,29 @@
     return s;
   }
 
+  function dockIframeInPanel() {
+    if (!iframeEl || !panelVideoFrameEl || !modalVideoFrameEl) return;
+    if (modalVideoFrameEl.contains(iframeEl)) {
+      panelVideoFrameEl.appendChild(iframeEl);
+    }
+  }
+
   function closeVideoModal() {
     if (!videoModalEl) return;
     var wasOpen = !videoModalEl.hidden;
     videoModalEl.hidden = true;
     document.body.style.overflow = "";
-    if (iframeModalEl) iframeModalEl.removeAttribute("src");
+    dockIframeInPanel();
     if (wasOpen) invalidateMapSoon();
   }
 
   function openVideoModal() {
-    if (!iframeEl || !iframeModalEl || !videoModalEl) return;
+    if (!iframeEl || !modalVideoFrameEl || !panelVideoFrameEl || !videoModalEl) return;
     var src =
       iframeEl.getAttribute("src") ||
       (iframeEl.src && !/^about:blank/i.test(iframeEl.src) ? iframeEl.src : "");
     if (!src) return;
-    iframeModalEl.src = src;
+    modalVideoFrameEl.appendChild(iframeEl);
     videoModalEl.hidden = false;
     document.body.style.overflow = "hidden";
     invalidateMapSoon();
