@@ -28,6 +28,8 @@
     animation: false,
     timeline: false,
     baseLayerPicker: false,
+    /* Evita ImageryLayer.fromWorldImagery() → api.cesium.com (Ion) y el 401 sin token válido */
+    baseLayer: false,
     geocoder: false,
     homeButton: true,
     sceneModePicker: true,
