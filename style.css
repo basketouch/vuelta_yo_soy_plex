@@ -187,23 +187,40 @@ body {
 }
 
 .plex-cta {
-  display: inline-block;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.95rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--bg);
-  background: linear-gradient(180deg, var(--plex-red) 0%, var(--plex-red-dim) 100%);
+  letter-spacing: 0.06em;
   border-radius: 6px;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 2px 12px var(--plex-glow);
-  transition: filter 0.15s ease, transform 0.1s ease;
+  transition: filter 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+/* Botón enlazado al canal: rojo YouTube + icono */
+.plex-cta--youtube {
+  color: #fff;
+  background: linear-gradient(180deg, #ff0303 0%, #c90000 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 2px 14px rgba(255, 0, 0, 0.32);
+}
+
+.plex-cta__icon {
+  flex-shrink: 0;
+  display: block;
+  opacity: 0.98;
+}
+
+.plex-cta__label {
+  line-height: 1;
 }
 
 .plex-cta:hover {
-  filter: brightness(1.12);
+  filter: brightness(1.08);
 }
 
 .plex-cta:active {
