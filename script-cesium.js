@@ -58,13 +58,23 @@
   viewer.scene.globe.showGroundAtmosphere = true;
   viewer.scene.skyAtmosphere.show = true;
 
-  viewer.camera.setView({
-    destination: Cesium.Cartesian3.fromDegrees(10, 22, 16500000),
-    orientation: {
-      heading: 0,
-      pitch: Cesium.Math.toRadians(-0.85),
-      roll: 0,
-    },
+  function applyFallbackCamera() {
+    viewer.resize();
+    viewer.camera.setView({
+      destination: Cesium.Cartesian3.fromDegrees(10, 22, 16500000),
+      orientation: {
+        heading: 0,
+        pitch: Cesium.Math.toRadians(-0.85),
+        roll: 0,
+      },
+    });
+  }
+
+  /* El panel lateral + flex dejan el canvas en 0×0 en el primer frame: sin resize
+   la cámara queda mal hasta pulsar Inicio. Doble rAF + zoomTo tras cargar datos. */
+  applyFallbackCamera();
+  requestAnimationFrame(function () {
+    requestAnimationFrame(applyFallbackCamera);
   });
 
   function resizeViewerSoon() {
@@ -339,6 +349,18 @@
       addEntitiesForTrip(data.vuelta3, "vuelta3", COLORS.vuelta3, temporadaForKey("vuelta3"));
       applyFilters();
       resizeViewerSoon();
+      var zt = viewer.zoomTo(viewer.entities, { duration: 0 });
+      if (zt && typeof zt.then === "function") {
+        zt.then(function () {
+          resizeViewerSoon();
+        }).catch(function () {
+          applyFallbackCamera();
+          resizeViewerSoon();
+        });
+      } else {
+        applyFallbackCamera();
+        resizeViewerSoon();
+      }
     })
     .catch(function (err) {
       console.error(err);
