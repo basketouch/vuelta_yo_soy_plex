@@ -292,7 +292,8 @@
           color: c.withAlpha(0.62),
           outlineColor: Cesium.Color.WHITE.withAlpha(0.72),
           outlineWidth: 1.5,
-          disableDepthTestDistance: Number.POSITIVE_INFINITY,
+          /* Sin disableDepthTestDistance: si no, los puntos se pintan “encima” del
+ horizonte y se ven en la cara oculta del globo (fantasma / transparente). */
           heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
         },
         name: "PLEX · " + paisStr,
