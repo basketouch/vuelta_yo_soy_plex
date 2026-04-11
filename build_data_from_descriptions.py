@@ -55,6 +55,18 @@ ID_OVERRIDES_V3: dict[str, str] = {
     "HvO7yjrTIZE": "España",
 }
 
+# Ubicación explícita en el mapa (corrige EE. UU. genérico → Miami / LA / Chile).
+VIDEO_MAP_OVERRIDES: dict[str, tuple[str, float, float]] = {
+    "UUprhoHCfKQ": ("EE. UU. (Los Ángeles)", 34.0522, -118.2437),
+    "EO4ry3c6kMs": ("EE. UU. (Miami)", 25.7617, -80.1918),
+    "FAob5Ggo_20": ("EE. UU. (Los Ángeles)", 34.0522, -118.2437),
+    "ABkvE3s-h3U": ("EE. UU. (Miami)", 25.7617, -80.1918),
+    "HGVbNjwxSCg": ("EE. UU. (Miami)", 25.7617, -80.1918),
+    "pVaX5RFNuT4": ("EE. UU. (Miami)", 25.7617, -80.1918),
+    "ADNX_RUaCCE": ("EE. UU. (Miami)", 25.7617, -80.1918),
+    "mfRiZdT4IYA": ("Chile", -33.4489, -70.6693),
+}
+
 BAD_SUBSTR = (
     "http",
     "instagram",
@@ -763,6 +775,24 @@ def build_vuelta3(
     return out
 
 
+def _youtube_id_from_entry_url(url: str) -> str:
+    m = re.search(r"[?&]v=([^&]+)", url)
+    return m.group(1) if m else ""
+
+
+def apply_video_map_overrides(rows: list[dict]) -> None:
+    for row in rows:
+        vid = _youtube_id_from_entry_url(row.get("url", ""))
+        o = VIDEO_MAP_OVERRIDES.get(vid)
+        if not o:
+            continue
+        label, lat0, lng0 = o
+        jx, jy = _v2_jitter_deg(vid)
+        row["pais"] = label
+        row["lat"] = round(lat0 + jx, 5)
+        row["lng"] = round(lng0 + jy, 5)
+
+
 def main():
     os.chdir(BASE)
     cache: dict[str, tuple[float, float] | None] = {}
@@ -794,6 +824,10 @@ def main():
                 f"vuelta 3: {len(vuelta3)} puntos (vuelta3_tabla.md; "
                 f"descripciones que sustituyen: {nd})"
             )
+
+    apply_video_map_overrides(vuelta1)
+    apply_video_map_overrides(vuelta2)
+    apply_video_map_overrides(vuelta3)
 
     out_obj = {"vuelta1": vuelta1, "vuelta2": vuelta2, "vuelta3": vuelta3}
     with open(os.path.join(BASE, "data.json"), "w", encoding="utf-8") as f:

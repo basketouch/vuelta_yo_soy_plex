@@ -466,25 +466,25 @@
     },
     {
       "titulo": "problemas con la poli xd - Vuelta Al Mundo En 80 Días",
-      "pais": "EE. UU.",
-      "lat": 39.87555,
-      "lng": -98.56126,
+      "pais": "EE. UU. (Los Ángeles)",
+      "lat": 34.09945,
+      "lng": -118.22546,
       "url": "https://www.youtube.com/watch?v=UUprhoHCfKQ",
       "temporada": 1
     },
     {
       "titulo": "MI PRIMERA VEZ EN LA NBA NO TUVO SENTIDO! - Vuelta Al Mundo En 80 Días",
-      "pais": "EE. UU.",
-      "lat": 39.83438,
-      "lng": -98.54048,
+      "pais": "EE. UU. (Miami)",
+      "lat": 25.76778,
+      "lng": -80.15278,
       "url": "https://www.youtube.com/watch?v=EO4ry3c6kMs",
       "temporada": 1
     },
     {
       "titulo": "Pedí Hamburguesas De MrBeast Y Las Trajo Un Robot! - Vuelta Al Mundo En 80 Días",
-      "pais": "EE. UU.",
-      "lat": 39.84732,
-      "lng": -98.59538,
+      "pais": "EE. UU. (Los Ángeles)",
+      "lat": 34.07122,
+      "lng": -118.25958,
       "url": "https://www.youtube.com/watch?v=FAob5Ggo_20",
       "temporada": 1
     },
@@ -1734,25 +1734,25 @@
     },
     {
       "titulo": "Así De Fácil Es Comprar Un Arma En Este País | La Vuelta Al Mundo 3",
-      "pais": "EE. UU.",
-      "lat": 39.85555,
-      "lng": -98.53264,
+      "pais": "EE. UU. (Miami)",
+      "lat": 25.78895,
+      "lng": -80.14494,
       "url": "https://www.youtube.com/watch?v=ABkvE3s-h3U",
       "temporada": 3
     },
     {
       "titulo": "En Nuestro Prime | La Vuelta Al Mundo 3",
-      "pais": "EE. UU.",
-      "lat": 39.79987,
-      "lng": -98.61068,
+      "pais": "EE. UU. (Miami)",
+      "lat": 25.73327,
+      "lng": -80.22298,
       "url": "https://www.youtube.com/watch?v=HGVbNjwxSCg",
       "temporada": 3
     },
     {
       "titulo": "Alguien Envió A La Policía A Por Nosotros | La Vuelta Al Mundo 3",
-      "pais": "EE. UU.",
-      "lat": 39.85791,
-      "lng": -98.53695,
+      "pais": "EE. UU. (Miami)",
+      "lat": 25.79131,
+      "lng": -80.14925,
       "url": "https://www.youtube.com/watch?v=pVaX5RFNuT4",
       "temporada": 3
     },
@@ -1766,9 +1766,9 @@
     },
     {
       "titulo": "Me Invitaron A Una Sociedad Secreta | La Vuelta Al Mundo 3",
-      "pais": "EE. UU.",
-      "lat": 39.81595,
-      "lng": -98.54048,
+      "pais": "EE. UU. (Miami)",
+      "lat": 25.74935,
+      "lng": -80.15278,
       "url": "https://www.youtube.com/watch?v=ADNX_RUaCCE",
       "temporada": 3
     },
@@ -1790,9 +1790,9 @@
     },
     {
       "titulo": "Vamos A Morir Pronto | La Vuelta Al Mundo 3",
-      "pais": "EE. UU.",
-      "lat": 39.8285,
-      "lng": -98.56872,
+      "pais": "Chile",
+      "lat": -33.4487,
+      "lng": -70.65852,
       "url": "https://www.youtube.com/watch?v=mfRiZdT4IYA",
       "temporada": 3
     },
