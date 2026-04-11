@@ -338,7 +338,7 @@
     },
     {
       "titulo": "MI PRIMERA VEZ EN ARGENTINA! - Vuelta Al Mundo En 80 Días",
-      "pais": "Nueva Zelanda, Argentina",
+      "pais": "Argentina",
       "lat": -34.62468,
       "lng": -58.3414,
       "url": "https://www.youtube.com/watch?v=OjXU-A8Q7Xo",
@@ -402,9 +402,9 @@
     },
     {
       "titulo": "Llorando En El Avión - Vuelta Al Mundo En 80 Días",
-      "pais": "México",
-      "lat": 19.40378,
-      "lng": -99.12398,
+      "pais": "Ecuador (Galápagos)",
+      "lat": -0.98259,
+      "lng": -90.95639,
       "url": "https://www.youtube.com/watch?v=BLc6FGwU-2E",
       "temporada": 1
     },
@@ -458,9 +458,9 @@
     },
     {
       "titulo": "Tuvimos Que Dormir En El Hotel Más Paranormal De Estados Unidos - Vuelta Al Mundo En 80 Días",
-      "pais": "EE. UU. (Colorado)",
-      "lat": 40.35417,
-      "lng": -105.50464,
+      "pais": "EE. UU. (Tonopah, Nevada)",
+      "lat": 38.04387,
+      "lng": -117.21334,
       "url": "https://www.youtube.com/watch?v=DeMIioT7gII",
       "temporada": 1
     },
@@ -1156,17 +1156,17 @@
     },
     {
       "titulo": "La Vuelta Al Mundo En 80 Días II - Día 65",
-      "pais": "Chile, Argentina",
-      "lat": -34.5835,
-      "lng": -58.40533,
+      "pais": "Chile (Patagonia)",
+      "lat": -51.7065,
+      "lng": -72.52963,
       "url": "https://www.youtube.com/watch?v=9_Ek3Apz_ZY",
       "temporada": 2
     },
     {
       "titulo": "La Vuelta Al Mundo En 80 Días II - Día 66",
-      "pais": "Argentina",
-      "lat": -34.59488,
-      "lng": -58.36336,
+      "pais": "Argentina (El Calafate) · Patagonia",
+      "lat": -50.33008,
+      "lng": -72.24526,
       "url": "https://www.youtube.com/watch?v=wz2s5RAyJV8",
       "temporada": 2
     },
@@ -1662,9 +1662,9 @@
     },
     {
       "titulo": "No Entiendo Cómo Terminé Aquí | La Vuelta Al Mundo 3",
-      "pais": "México",
-      "lat": 19.44064,
-      "lng": -99.11496,
+      "pais": "Colombia",
+      "lat": 4.71904,
+      "lng": -74.05386,
       "url": "https://www.youtube.com/watch?v=q7IGt94MibQ",
       "temporada": 3
     },
@@ -1822,17 +1822,17 @@
     },
     {
       "titulo": "Tuve Que Continuar Solo El Viaje | La Vuelta Al Mundo 3",
-      "pais": "Chile",
-      "lat": -33.47459,
-      "lng": -70.62518,
+      "pais": "EE. UU. (Nueva York)",
+      "lat": 40.73321,
+      "lng": -73.94098,
       "url": "https://www.youtube.com/watch?v=AArXEZPWp58",
       "temporada": 3
     },
     {
       "titulo": "Palmando Pero Felices | La Vuelta Al Mundo 3",
-      "pais": "Argentina",
-      "lat": -34.64154,
-      "lng": -58.36768,
+      "pais": "EE. UU. (Nueva York)",
+      "lat": 40.69277,
+      "lng": -73.92132,
       "url": "https://www.youtube.com/watch?v=OkRo02yS8wM",
       "temporada": 3
     },
@@ -1870,17 +1870,17 @@
     },
     {
       "titulo": "Llegamos A La Ciudad Del Pecado | La Vuelta Al Mundo 3",
-      "pais": "EE. UU. (Las Vegas)",
-      "lat": 36.17284,
-      "lng": -115.14196,
+      "pais": "Países Bajos (Ámsterdam)",
+      "lat": 52.37054,
+      "lng": 4.90194,
       "url": "https://www.youtube.com/watch?v=rq7IyAt_RLo",
       "temporada": 3
     },
     {
       "titulo": "No Dejes Que La Noche Te Confunda | La Vuelta Al Mundo 3",
-      "pais": "EE. UU. (Las Vegas)",
-      "lat": 36.14931,
-      "lng": -115.11568,
+      "pais": "Países Bajos (Ámsterdam)",
+      "lat": 52.35221,
+      "lng": 4.91772,
       "url": "https://www.youtube.com/watch?v=8ye4kBjBeZc",
       "temporada": 3
     },
