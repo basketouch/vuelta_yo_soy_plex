@@ -353,7 +353,7 @@
         syncVideoSelectToRec(rec);
       });
 
-      marker.bindTooltip("PLEX · " + paisStr, {
+      marker.bindTooltip("@YOSOYPLEX · " + paisStr, {
         sticky: true,
         direction: "top",
         opacity: 0.95,

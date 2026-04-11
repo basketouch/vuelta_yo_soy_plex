@@ -380,7 +380,7 @@
           outlineColor: Cesium.Color.WHITE.withAlpha(0.72),
           outlineWidth: 1.5,
         },
-        name: "PLEX · " + paisStr,
+        name: "@YOSOYPLEX · " + paisStr,
       });
 
       var rec = {

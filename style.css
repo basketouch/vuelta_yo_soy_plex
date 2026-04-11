@@ -118,7 +118,7 @@ body {
 .plex-wordmark__sub {
   font-family: "Bebas Neue", sans-serif;
   font-size: 0.95rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.08em;
   color: var(--plex-amber);
   margin-top: 0.2rem;
 }
