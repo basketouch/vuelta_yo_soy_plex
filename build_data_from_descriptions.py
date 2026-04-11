@@ -75,6 +75,9 @@ VIDEO_MAP_OVERRIDES: dict[str, tuple[str, float, float]] = {
     "OkRo02yS8wM": ("EE. UU. (Nueva York)", 40.73061, -73.93524),
     "wz2s5RAyJV8": ("Argentina (El Calafate) · Patagonia", -50.3389, -72.2635),
     "9_Ek3Apz_ZY": ("Chile (Patagonia)", -51.7267, -72.5059),
+    "wlkJD4RE2aU": ("Brasil", -15.7942, -47.8822),
+    "aL0V1ztnWws": ("Brasil", -22.9068, -43.1729),
+    "kJq2vlISIeM": ("Brasil", -23.5505, -46.6333),
 }
 
 BAD_SUBSTR = (

@@ -241,9 +241,9 @@ Los vídeos privados o no disponibles **no** se incluyen en el mapa.
 | 57 | 3 | Sorprendiendo A Myke Towers Con Un Coche Acuático \| La Vuelta Al Mundo 3 | Puerto Rico (EE. UU.) | 18.22649 | -66.55069 | https://www.youtube.com/watch?v=y38hEofzzvk |
 | 58 | 3 | Mi Primer Directo En El Viaje \| La Vuelta Al Mundo 3 | España | 40.43464 | -3.68949 | https://www.youtube.com/watch?v=GUZYD2kd5Is |
 | 59 | 3 | Vamos A Morir Pronto \| La Vuelta Al Mundo 3 | Chile | -33.4487 | -70.65852 | https://www.youtube.com/watch?v=mfRiZdT4IYA |
-| 60 | 3 | ¿Dónde He Estado? \| La Vuelta Al Mundo 3 | España | 40.41896 | -3.65968 | https://www.youtube.com/watch?v=kJq2vlISIeM |
-| 61 | 3 | Llegué Al País Más Largo Del Mundo \| La Vuelta Al Mundo 3 | Chile | -33.444 | -70.69852 | https://www.youtube.com/watch?v=wlkJD4RE2aU |
-| 62 | 3 | La Extraña Fobia De Mi Amigo \| La Vuelta Al Mundo 3 | Chile | -33.45066 | -70.69577 | https://www.youtube.com/watch?v=aL0V1ztnWws |
+| 60 | 3 | ¿Dónde He Estado? \| La Vuelta Al Mundo 3 | Brasil | -23.54834 | -46.58918 | https://www.youtube.com/watch?v=kJq2vlISIeM |
+| 61 | 3 | Llegué Al País Más Largo Del Mundo \| La Vuelta Al Mundo 3 | Brasil | -15.7893 | -47.91142 | https://www.youtube.com/watch?v=wlkJD4RE2aU |
+| 62 | 3 | La Extraña Fobia De Mi Amigo \| La Vuelta Al Mundo 3 | Brasil | -22.90856 | -43.19937 | https://www.youtube.com/watch?v=aL0V1ztnWws |
 | 63 | 3 | Tuve Que Continuar Solo El Viaje \| La Vuelta Al Mundo 3 | EE. UU. (Nueva York) | 40.73321 | -73.94098 | https://www.youtube.com/watch?v=AArXEZPWp58 |
 | 64 | 3 | Palmando Pero Felices \| La Vuelta Al Mundo 3 | EE. UU. (Nueva York) | 40.69277 | -73.92132 | https://www.youtube.com/watch?v=OkRo02yS8wM |
 | 65 | 3 | Esto No Estaba En Mis Planes 2 \| La Vuelta Al Mundo 3 | Japón | 35.72502 | 139.69128 | https://www.youtube.com/watch?v=Z3HLIjoopRs |
